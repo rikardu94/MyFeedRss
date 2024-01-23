@@ -1,0 +1,11 @@
+﻿@if (Posts is not null && Posts.Count > 0)
+{
+    foreach (var post in Posts)
+    {
+        <PostDetail PostInfo=post></PostDetail>
+    }
+}
+else
+{
+    <p>Il n'existent pas de nouveaux posts</p>
+}

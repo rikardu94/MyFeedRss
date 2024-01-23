@@ -1,0 +1,8 @@
+﻿@page "/"
+@using MyFeedRss.Application.FeedsRss;
+
+@inject IFeedRssService feedRssService
+
+<PageTitle>My Feed RSS</PageTitle>
+
+<MyFeedRss.Components.FeedsRss.ListFeedRss FeedsRss="feedRssService.GetAllFeedsRss()"></MyFeedRss.Components.FeedsRss.ListFeedRss>

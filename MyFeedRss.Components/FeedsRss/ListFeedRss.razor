@@ -1,0 +1,10 @@
+﻿@if (FeedsRss is not null && FeedsRss.Count > 0)
+{
+    foreach (var feedRss in FeedsRss)
+    {
+        <FeedRssDetail FeedRssInfo="feedRss"></FeedRssDetail>
+    }
+} else
+{
+    <p>Il n'y a pas de Feeds Rss paramétrés.</p>
+}
