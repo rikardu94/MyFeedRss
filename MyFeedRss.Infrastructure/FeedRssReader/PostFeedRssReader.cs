@@ -70,10 +70,17 @@ public class PostFeedRssReader : IPostFeedRssReader
         {
             if (item.Links.Count > 0)
             {
+                string content;
+
+                if (item.Content is not null && item.Content.ToString() is not null)
+                    content = item.Content.ToString()!;
+                else
+                    content = item.Summary.Text;
+                
                 ListReturn.Add(new Post
                 {
                     Title = item.Title.Text,
-                    Content = new PostContent(item.Summary.Text),
+                    Content = new PostContent(content),
                     Link = item.Links.First().Uri.AbsoluteUri,
                     PublicationDate = item.PublishDate.DateTime
                 });

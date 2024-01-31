@@ -30,7 +30,7 @@ namespace MyFeedRss.Application.Posts
 
         public void SynchronizePostsFromFeedRss(IFeedRss feedRss)
         {
-            DateTime lastUpdatedTime = DateTime.Now;
+            var lastUpdatedTime = DateTime.Now;
 
             List<IPost> posts = PostFeedRssReader.GetPosts(feedRss);
 

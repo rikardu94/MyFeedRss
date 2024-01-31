@@ -22,12 +22,4 @@ public class PostContent : IPostContent
 
         return false;
     }
-    public bool IsImagePresent()
-    {
-        // FIXME
-        if (Content.Contains("<img "))
-            return true;
-
-        return false;
-    }
 }
