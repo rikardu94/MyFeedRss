@@ -1,4 +1,4 @@
-﻿using MyFeedRss.Domain.FeedRss;
+﻿using MyFeedRss.Domain.FeedsRss;
 using MyFeedRss.Domain.Posts;
 using System;
 using System.Collections.Generic;

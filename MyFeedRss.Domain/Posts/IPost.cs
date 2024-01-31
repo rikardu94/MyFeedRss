@@ -11,7 +11,7 @@ public interface IPost
 {
     public IPostIdentity Id { get; init; }
     public string Title { get; init; }
+    public IPostContent? Content { get; init; }
     public string Link { get; init; }
     public DateTime? PublicationDate { get; init; }
-    public string Description { get; init; }
 }

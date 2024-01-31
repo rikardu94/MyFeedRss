@@ -1,4 +1,12 @@
-﻿@page "/listPosts"
+﻿@page "/listPosts/functionalIdFeedRss={FunctionalIdFeedRss:int}"
 
-<PageTitle>Liste Posts @FeedRssInfo.Name</PageTitle>
+<PageTitle>Liste Posts @FeedRssInfo?.Name</PageTitle>
 
+@if (FeedRssInfo is not null)
+{    
+    <MyFeedRss.Components.Posts.ListPosts Posts="@Posts"></MyFeedRss.Components.Posts.ListPosts>
+}
+else
+{
+    <p>Merci de renseigner le Feed Rss.</p>
+}

@@ -1,6 +1,7 @@
 using MyFeedRss.Application.FeedsRss;
 using MyFeedRss.Application.Posts;
 using MyFeedRss.Components;
+using MyFeedRss.Infrastructure.FeedRss;
 using MyFeedRss.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,11 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddTransient<IFeedRssService, FeedRssService>();
 builder.Services.AddTransient<IFeedRssRepository, FeedRssRepository>();
+
+builder.Services.AddTransient<IPostService, PostService>();
+builder.Services.AddTransient<IPostFeedRssReader, PostFeedRssReader>();
+builder.Services.AddTransient<IFeedRssRepository, FeedRssRepository>();
+builder.Services.AddTransient<IPostRepository, PostRepository>();
 
 var app = builder.Build();
 

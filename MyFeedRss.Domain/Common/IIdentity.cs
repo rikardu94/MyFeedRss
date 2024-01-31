@@ -11,5 +11,5 @@ public interface IIdentity<TypeTechnical, TypeFunctional>
 {
     public TypeTechnical TechnicalId { get; init; }
 
-    public TypeFunctional FunctionalId { get; init; }
+    public TypeFunctional FunctionalId { get; set; }
 }

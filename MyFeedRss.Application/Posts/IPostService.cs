@@ -1,4 +1,4 @@
-﻿using MyFeedRss.Domain.FeedRss;
+﻿using MyFeedRss.Domain.FeedsRss;
 using MyFeedRss.Domain.Posts;
 using System;
 using System.Collections.Generic;
@@ -12,5 +12,5 @@ public interface IPostService
 {
     public List<IPost> GetPostsFromFeedRss(IFeedRssIdentity idFeedRss);
 
-    public void SynchronizePostsFromFeedRss(IFeedRssIdentity idFeedRss);
+    public void SynchronizePostsFromFeedRss(IFeedRss feedRss);
 }

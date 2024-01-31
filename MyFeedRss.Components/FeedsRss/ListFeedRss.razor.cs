@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 using Microsoft.AspNetCore.Components;
-using MyFeedRss.Domain.FeedRss;
+using MyFeedRss.Domain.FeedsRss;
 
 namespace MyFeedRss.Components.FeedsRss;
 
