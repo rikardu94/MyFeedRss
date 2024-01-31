@@ -1,4 +1,4 @@
-﻿using MyFeedRss.Domain.FeedRss;
+﻿using MyFeedRss.Domain.FeedsRss;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,8 @@ namespace MyFeedRss.Infrastructure.Repository;
 public interface IFeedRssRepository
 {
     public List<IFeedRss> GetAllFeedRss();
+
+    public IFeedRss? GetFeedRssByFunctionnalId(int id);
 
     public void Save(IFeedRss feedRss);
 }

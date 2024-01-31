@@ -1,3 +1,17 @@
 ﻿<h1>@PostInfo.Title</h1>
 
-<p>@PostInfo.Description</p>
+@if (PostInfo.Content is not null)
+{
+    @if (PostInfo.Content.IsContentHtml())
+    {
+        @((MarkupString)PostInfo.Content.Content)
+    }
+    else
+    {
+        <p>@PostInfo.Content.Content</p>
+    }
+}
+else
+{
+    <p>Pas de contenu à afficher</p>
+}

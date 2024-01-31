@@ -1,5 +1,5 @@
 ﻿using MyFeedRss.Domain;
-using MyFeedRss.Domain.FeedRss;
+using MyFeedRss.Domain.FeedsRss;
 using MyFeedRss.Domain.Posts;
 using System;
 using System.Collections.Generic;
@@ -11,21 +11,18 @@ namespace MyFeedRss.Infrastructure.Repository
 {
     public class PostRepository : IPostRepository
     {
+        private List<IPost> listPostsTmp = new();
+
         public void AddNewPosts(List<IPost> posts)
         {
             // FIXME
-            
+            listPostsTmp = posts;
         }
 
         public List<IPost> GetPostsFromFeedRss(IFeedRssIdentity idFeedRss)
         {
             // FIXME
-            return new List<IPost>
-            {
-                new Post { Title = "Post 1" },
-                new Post { Title = "Post 2" },
-                new Post { Title = "Post 3" }
-            };
+            return listPostsTmp;
         }
     }
 }

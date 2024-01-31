@@ -1,4 +1,4 @@
-﻿using MyFeedRss.Domain.FeedRss;
+﻿using MyFeedRss.Domain.FeedsRss;
 using MyFeedRss.Domain.Posts;
 using MyFeedRss.Infrastructure.FeedRss;
 using MyFeedRss.Infrastructure.Repository;
@@ -28,20 +28,19 @@ namespace MyFeedRss.Application.Posts
             return PostRepository.GetPostsFromFeedRss(idFeedRss);
         }
 
-        public void SynchronizePostsFromFeedRss(IFeedRssIdentity idFeedRss)
+        public void SynchronizePostsFromFeedRss(IFeedRss feedRss)
         {
-            List<IPost> posts = new(); // PostFeedRssReader.GetPostsFromDate(feedRss.DateLastPost); // FIXME
+            DateTime lastUpdatedTime = DateTime.Now;
 
-            if (posts is not null && posts.Count > 0)
-            {
-                PostRepository.AddNewPosts(posts);
+            List<IPost> posts = PostFeedRssReader.GetPosts(feedRss);
 
-                // feedRss.DateLastPost = posts.Max(x => x.PublicationDate); // FIXME
-                // FeedRssRepository.Save(feedRss); // FIXME
+            PostRepository.AddNewPosts(posts);
+            feedRss.LastUpdatedTime = lastUpdatedTime;
 
-                // FIXME
-                // transaction bdd
-            }
+            FeedRssRepository.Save(feedRss);
+
+            // FIXME
+            // transaction bdd
         }
     }
 }

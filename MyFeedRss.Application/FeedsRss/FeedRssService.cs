@@ -1,4 +1,4 @@
-﻿using MyFeedRss.Domain.FeedRss;
+﻿using MyFeedRss.Domain.FeedsRss;
 using MyFeedRss.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
@@ -20,5 +20,10 @@ public class FeedRssService : IFeedRssService
     public List<IFeedRss> GetAllFeedsRss()
     {
         return FeedRssRepository.GetAllFeedRss();
+    }
+
+    public IFeedRss? GetFeedRssByFunctionnalId(int id)
+    {
+        return FeedRssRepository.GetFeedRssByFunctionnalId(id);
     }
 }

@@ -9,5 +9,5 @@ namespace MyFeedRss.Domain.Posts;
 public class PostIdentity : IPostIdentity
 {
     public Guid TechnicalId { get; init; } = Guid.NewGuid();
-    public int FunctionalId { get; init; }
+    public int FunctionalId { get; set; }
 }

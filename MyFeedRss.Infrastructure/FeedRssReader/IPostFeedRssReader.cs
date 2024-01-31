@@ -1,4 +1,5 @@
-﻿using MyFeedRss.Domain.Posts;
+﻿using MyFeedRss.Domain.FeedsRss;
+using MyFeedRss.Domain.Posts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace MyFeedRss.Infrastructure.FeedRss
 {
     public interface IPostFeedRssReader
     {
-        public List<IPost> GetPostsFromDate(DateTime fromDateTime);
+        public List<IPost> GetPosts(IFeedRss feedRss);
     }
 }
