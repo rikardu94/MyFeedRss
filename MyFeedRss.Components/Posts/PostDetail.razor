@@ -2,13 +2,24 @@
 
 @if (PostInfo.Content is not null)
 {
-    @if (PostInfo.Content.IsContentHtml())
+    @if (PostInfo.Content.ContainsHtml())
     {
         @((MarkupString)PostInfo.Content.Content)
     }
     else
     {
         <p>@PostInfo.Content.Content</p>
+    }
+}
+else if (PostInfo.Description is not null)
+{
+    @if (PostInfo.Description.ContainsHtml())
+    {
+        @((MarkupString)PostInfo.Description.Content)
+    }
+    else
+    {
+        <p>@PostInfo.Description.Content</p>
     }
 }
 else

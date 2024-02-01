@@ -10,5 +10,5 @@ namespace MyFeedRss.Domain.Posts;
 public interface IPostContent
 {
     public string Content { get; init; }
-    public bool IsContentHtml();
+    public bool ContainsHtml();
 }

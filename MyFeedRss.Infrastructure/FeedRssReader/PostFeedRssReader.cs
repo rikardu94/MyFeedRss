@@ -1,12 +1,15 @@
 ﻿using MyFeedRss.Domain.FeedsRss;
 using MyFeedRss.Domain.Posts;
+using MyFeedRss.Infrastructure.FeedRssReader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.ServiceModel.Syndication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace MyFeedRss.Infrastructure.FeedRss;
 
@@ -68,23 +71,7 @@ public class PostFeedRssReader : IPostFeedRssReader
         reader.Close();
         foreach (SyndicationItem item in feed.Items)
         {
-            if (item.Links.Count > 0)
-            {
-                string content;
-
-                if (item.Content is not null && item.Content.ToString() is not null)
-                    content = item.Content.ToString()!;
-                else
-                    content = item.Summary.Text;
-                
-                ListReturn.Add(new Post
-                {
-                    Title = item.Title.Text,
-                    Content = new PostContent(content),
-                    Link = item.Links.First().Uri.AbsoluteUri,
-                    PublicationDate = item.PublishDate.DateTime
-                });
-            }
+            ListReturn.Add(PostFeedRssMapper.CreateFromFeedRssReader(item));
         }
 
         return ListReturn;

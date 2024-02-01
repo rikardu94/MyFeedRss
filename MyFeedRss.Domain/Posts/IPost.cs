@@ -10,8 +10,9 @@ namespace MyFeedRss.Domain.Posts;
 public interface IPost
 {
     public IPostIdentity Id { get; init; }
-    public string Title { get; init; }
-    public IPostContent? Content { get; init; }
-    public string Link { get; init; }
-    public DateTime? PublicationDate { get; init; }
+    public string Title { get; set; }
+    public IPostContent? Description { get; set; }
+    public IPostContent? Content { get; set; }
+    public string Link { get; set; }
+    public DateTime? PublicationDate { get; set; }
 }
